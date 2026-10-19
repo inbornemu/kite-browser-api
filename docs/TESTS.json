@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-10-19T01:57:09.027Z",
+  "project": "kite-browser-api",
+  "status": "PASS",
+  "test_cases": 12,
+  "dotnet_assertions": null,
+  "evidence_level": "E1",
+  "scope": "Local contracts; nine shared seller tests are repeated in five consumer repositories",
+  "live_payment_performed": false
+}

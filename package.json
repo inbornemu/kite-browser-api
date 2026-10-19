@@ -1,0 +1,20 @@
+{
+  "name": "@inbornemu/kite-browser-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bounded rendering, screenshots and extraction for paid Agent requests",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/main.mjs"
+  },
+  "dependencies": {
+    "@x402/extensions": "2.28.0",
+    "viem": "2.54.1",
+    "playwright": "1.64.1",
+    "ipaddr.js": "2.2.0"
+  }
+}

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>Browser API</title
+  ><style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1118;
+      --panel: #141f2b;
+      --line: #293748;
+      --ink: #eef5fc;
+      --muted: #a5b8cc;
+      --accent: #73e0bd;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font:
+        15px/1.55 system-ui,
+        sans-serif;
+    }
+    main {
+      max-width: 1320px;
+      margin: auto;
+      padding: 40px 34px;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+    }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 13px;
+      color: var(--accent);
+    }
+    h1 {
+      font-size: 36px;
+      letter-spacing: -1px;
+      margin: 12px 0;
+    }
+    h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+    }
+    p {
+      color: var(--muted);
+    }
+    small {
+      color: var(--muted);
+    }
+    .pill {
+      border: 1px solid #365a52;
+      color: var(--accent);
+      border-radius: 24px;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 24px;
+      border-radius: 12px;
+      min-width: 0;
+    }
+    .stack {
+      display: grid;
+      gap: 20px;
+    }
+    .field {
+      display: block;
+      margin: 12px 0 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #3a4c61;
+      border-radius: 7px;
+      background: #0c1621;
+      color: var(--ink);
+      font: 14px system-ui;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+      font:
+        12px/1.6 ui-monospace,
+        monospace;
+    }
+    button {
+      border: 0;
+      background: var(--accent);
+      color: #0c2c23;
+      padding: 11px 16px;
+      font: 600 14px system-ui;
+      border-radius: 7px;
+      cursor: pointer;
+      margin: 12px 8px 0 0;
+    }
+    .secondary {
+      background: #294056;
+      color: var(--ink);
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: wait;
+    }
+    pre {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font:
+        12px/1.7 ui-monospace,
+        monospace;
+      max-height: 580px;
+      overflow: auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 13px;
+    }
+    th,
+    td {
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 8px;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .metric {
+      background: #0c1722;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .metric b {
+      display: block;
+      font-size: 27px;
+    }
+    .banner {
+      padding: 12px;
+      border-left: 3px solid var(--accent);
+      background: #112e29;
+      margin: 20px 0;
+    }
+    .error {
+      border-color: #f7a18b;
+      color: #f7c1b3;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    a {
+      color: var(--accent);
+    }
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      main {
+        padding: 24px 16px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      header {
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      th,
+      td {
+        font-size: 11px;
+        padding: 8px 4px;
+      }
+    }
+  </style>
+  <main>
+    <header>
+      <div>
+        <div class="brand">KITE / 08 / INFRA & SERVICES</div>
+        <h1>Browser API</h1>
+        <small
+          >Bounded rendering, screenshots and extraction for paid Agent
+          requests</small
+        >
+      </div>
+      <span class="pill">v0.1 · evaluation</span>
+    </header>
+    <div id="notice" role="status" class="banner">
+      Ready. Credentials stay in this page's memory.
+    </div>
+    <div class="layout">
+      <section class="panel">
+        <h2>Request workspace</h2>
+        <label class="field" for="token">Workspace access token</label
+        ><input
+          id="token"
+          type="password"
+          autocomplete="off"
+          placeholder="Enter your configured access token"
+        /><label class="field" for="request">Bounded request</label
+        ><textarea id="request" rows="15">
+{
+  "operation_id": "browser-example",
+  "url": "https://example.com",
+  "action": "extract",
+  "selectors": {
+    "title": "h1"
+  }
+}</textarea>
+        <details>
+          <summary>Payment proof · advanced</summary>
+          <input
+            id="payment"
+            type="password"
+            autocomplete="off"
+            placeholder="Optional x402 PAYMENT-SIGNATURE"
+          />
+        </details>
+        <button id="submit">Request / quote</button>
+        <p>
+          The free preflight shows the exact payment terms. This page never
+          creates or approves a wallet session.
+        </p>
+      </section>
+      <section class="panel">
+        <h2>Observed result</h2>
+        <pre id="response">No request sent.</pre>
+        <div id="artifacts"></div>
+      </section>
+    </div>
+    <p>
+      <small
+        >AI-assisted development · local evidence and real integration evidence
+        are tracked separately · no official listing claimed</small
+      >
+    </p>
+  </main>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    function notice(s) {
+      $("notice").textContent = s;
+    }
+    function display(data) {
+      $("response").textContent = JSON.stringify(data, null, 2);
+      $("artifacts").replaceChildren();
+      for (const artifact of data.artifacts || []) {
+        if (
+          artifact.mime_type === "image/png" &&
+          artifact.encoding === "base64"
+        ) {
+          const img = document.createElement("img");
+          img.alt = "Actual execution screenshot";
+          img.src = "data:image/png;base64," + artifact.data;
+          $("artifacts").append(img);
+        }
+      }
+    }
+    async function submit() {
+      try {
+        const response = await fetch("/v1/browser/run", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            ...($("token").value
+              ? { authorization: "Bearer " + $("token").value }
+              : {}),
+            ...($("payment").value
+              ? { "payment-signature": $("payment").value }
+              : {}),
+          },
+          body: $("request").value,
+        });
+        const data = await response.json();
+        display(data);
+        notice(
+          response.status === 402
+            ? "Quote received. Use the approved Passport session to make this purchase."
+            : "HTTP " +
+                response.status +
+                " · " +
+                (data.error || "Response received"),
+        );
+      } catch (e) {
+        notice(e.message);
+      }
+    }
+    $("submit").onclick = submit;
+  </script>
+</html>

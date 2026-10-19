@@ -1,0 +1,38 @@
+schema: 1
+name: kite-browser-api
+display_name: Browser API
+description: Bounded rendering, screenshots and extraction for paid Agent
+  requests. Evaluation draft; actual payment/deployment verification is pending.
+maintainer:
+  github: inbornemu
+status: draft
+network: eip155:2368
+pay_to: "0x0000000000000000000000000000000000000000"
+source: custom
+upstream:
+  name: Browser API
+  url: https://github.com/inbornemu/kite-browser-api
+  requires_api_key: false
+endpoints:
+  - method: POST
+    path: /v1/browser/run
+    summary: Bounded rendering, screenshots and extraction for paid Agent requests
+    price_usd: "0.01"
+    example_request:
+      body:
+        operation_id: sample-operation
+        url: https://example.com
+        action: extract
+        selectors:
+          title: h1
+    pitfalls:
+      - "Draft only: configure a real receiver, asset and public origin before
+        deployment."
+      - Use an approved original Passport session; unknown settlement is not
+        permission to repurchase.
+categories:
+  - data
+tags:
+  - kite
+  - x402
+  - agent-services

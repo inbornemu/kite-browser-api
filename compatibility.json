@@ -1,0 +1,126 @@
+{
+  "schema_version": "implementation-1",
+  "status": "PARTIAL_READ_ONLY",
+  "observed_at": "2026-10-19T01:36:03.239Z",
+  "source_commits": {
+    "passport-skills": "bca164242485733919de4e0717e6d2ff10919c82",
+    "kite-x402-services": "893a27509648b660bbba626b0da59619a94f04ab"
+  },
+  "source_checks": [
+    {
+      "repo": "passport-skills",
+      "commit": "bca164242485733919de4e0717e6d2ff10919c82",
+      "path": "x402-execute/references/commands.md",
+      "http_status": 200,
+      "sha256": "39cb3691fcafd9d683279b1c6ecf04c41a6f042abd1a257ab65200cad83a7590"
+    },
+    {
+      "repo": "kite-x402-services",
+      "commit": "893a27509648b660bbba626b0da59619a94f04ab",
+      "path": "schema/service.schema.json",
+      "http_status": 200,
+      "sha256": "34ebfe2f760a3eacd2e173891a838343c6ce72fa1a45ec3d085bc3d1bcbd1946"
+    }
+  ],
+  "cli_version": {
+    "kpass": {
+      "installed": false,
+      "version": null
+    },
+    "ksearch": {
+      "installed": false,
+      "version": null
+    }
+  },
+  "account_environment": null,
+  "merchant_network": "eip155:2368",
+  "asset": null,
+  "facilitator": "https://facilitator.pieverse.io/v2",
+  "supported_observation": {
+    "status": "OBSERVED",
+    "http_status": 200,
+    "observed_at": "2026-10-19T01:36:03.239Z",
+    "body": {
+      "kinds": [
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:56"
+        },
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:97"
+        },
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:8453"
+        },
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:143"
+        },
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:2368"
+        },
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:2366"
+        },
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:196"
+        },
+        {
+          "x402Version": 2,
+          "scheme": "exact",
+          "network": "eip155:1952"
+        }
+      ],
+      "extensions": [],
+      "signers": {
+        "eip155:*": [
+          "0x12343e649e6b2b2b77649DFAb88f103c02F3C78b",
+          "0xfa6b2a1FC2151197cE3242D0Ea64327b798Dbd4a"
+        ]
+      }
+    }
+  },
+  "standard_client_test": {
+    "status": "BLOCKED",
+    "evidence": [],
+    "reason": "No approved funded payment context"
+  },
+  "passport_test": {
+    "status": "BLOCKED",
+    "evidence": [],
+    "reason": "No installed verified CLI, account approval or funded session"
+  },
+  "live_payment_performed": false,
+  "live_settlement_performed": false,
+  "blocking_reason": "Public HTTPS deployment, receiver/asset configuration and approved real session still required. Facilitator support is not Passport interoperability.",
+  "project": "kite-browser-api",
+  "manifest_schema_test": {
+    "status": "PASS",
+    "evidence": [
+      "service.yaml"
+    ],
+    "evidence_level": "E1"
+  },
+  "http_preflight": {
+    "status": "BLOCKED_LOCAL_DNS",
+    "evidence": [
+      "docs/LOCAL-VALIDATION.json"
+    ],
+    "evidence_level": "E1",
+    "checks": [
+      "DNS resolved to a reserved address in this environment; target rejected before payment"
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation_id": "sample-operation",
+  "url": "https://example.com",
+  "action": "extract",
+  "selectors": {
+    "title": "h1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "project": "kite-browser-api",
+  "status": "PASS",
+  "preflight_blocked": true,
+  "checks": [
+    "DNS resolved to a reserved address in this environment; target rejected before payment"
+  ],
+  "evidence_level": "E1"
+}
