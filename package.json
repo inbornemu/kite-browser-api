@@ -1,6 +1,6 @@
 {
   "name": "@inbornemu/kite-browser-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Bounded rendering, screenshots and extraction for paid Agent requests",

@@ -88,5 +88,11 @@ test("redirect and private subrequest escape are rejected", async (t) => {
         { url: origin + suffix, action: "render" },
         { fixtureOrigins: [origin] },
       ),
+      (error) =>
+        [
+          "redirect_or_second_navigation_blocked",
+          "target_not_allowlisted",
+          "blocked_private_destination",
+        ].includes(error.code),
     );
 });

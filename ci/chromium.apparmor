@@ -1,0 +1,8 @@
+# CI-only allowlist for the Playwright browser on GitHub's Ubuntu runner.
+# Chromium retains its own namespace and seccomp sandbox.
+abi <abi/4.0>,
+include <tunables/global>
+
+profile kite-browser-ci /home/runner/.cache/ms-playwright/**/chrome flags=(unconfined) {
+  userns,
+}

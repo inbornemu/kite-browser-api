@@ -2,7 +2,7 @@
 
 Bounded rendering, screenshots and extraction for paid Agent requests.
 
-Version 0.1.0 is an AI-assisted engineering evaluation release, developed under one operator and assigned to this GitHub account. It is not evidence of independent human adoption, official Kite approval, Electric Capital inclusion or successful live payment.
+Version 0.1.1 is an AI-assisted engineering evaluation release, developed under one operator and assigned to this GitHub account. It is not evidence of independent human adoption, official Kite approval, Electric Capital inclusion or successful live payment.
 
 ## Run and verify
 
@@ -33,3 +33,9 @@ Read [compatibility.json](compatibility.json) and [the protocol boundary](docs/P
 ## Scope and evidence
 
 [Original PRD](docs/PRD.md) describes the full target, not a claim that every external acceptance gate has passed. [Event contract](docs/EVENTS.md) defines the application records. The standalone repositories share protocol/storage support code, with distinct business implementations and tests. The license is MIT; third-party dependencies keep their upstream licenses. Reproduce failures without publishing payment signatures, account credentials or private files.
+
+## Ubuntu CI sandbox
+
+The GitHub Ubuntu runner uses the scoped profile in ci/chromium.apparmor to allow its downloaded Playwright Chrome binary to create user namespaces. chromiumSandbox remains enabled. This CI-only profile is installed on the ephemeral runner, not on the operator workstation. Network rejection tests require the expected policy error codes, so a browser launch failure cannot masquerade as a successful destination block.
+
+Reference: https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md

@@ -194,6 +194,11 @@ export async function runBrowser(input, options = {}) {
           accept: r.headers().accept || "*/*",
           "accept-encoding": "identity",
         });
+        // Reject before handing a Location header to Chromium. Browser-level
+        // private-network prompts can otherwise hide the redirected request
+        // from route interception and turn a policy rejection into a timeout.
+        if (upstream.status >= 300 && upstream.status < 400)
+          throw fault("redirect_or_second_navigation_blocked");
         bytes += upstream.body.length;
         if (bytes > 10 * 1024 * 1024) throw fault("resource_limit");
         const safe = Object.fromEntries(
